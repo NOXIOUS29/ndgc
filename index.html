@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NĐGC — New Wave From The Underground</title>
+    <meta name="description" content="NĐGC - A collective of underground artists blending New Wave, Hyperpop, and modern alternative sounds.">
+    <meta name="keywords" content="NĐGC, New Wave, Underground Music, Hyperpop, NOXIOUS, HEXXO, THOKAWI, LILZIDDY, ZURA">
+    <meta property="og:title" content="NĐGC — New Wave From The Underground">
+    <meta property="og:description" content="Official website and portfolio for NĐGC Underground Music Collective.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090909',
+                        neonPurple: '#9F5FFF',
+                        neonCyan: '#00E5FF',
+                        darkGlass: 'rgba(18, 18, 24, 0.7)',
+                    },
+                    boxShadow: {
+                        neonPurple: '0 0 25px rgba(159, 95, 255, 0.5)',
+                        neonCyan: '0 0 25px rgba(0, 229, 255, 0.5)',
+                        glow: '0 0 15px rgba(159, 95, 255, 0.3), 0 0 30px rgba(0, 229, 255, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #090909;
+            --purple: #9F5FFF;
+            --cyan: #00E5FF;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .font-cyber {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(18, 18, 26, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(25, 25, 35, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(159, 95, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 229, 255, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(0, 229, 255, 0.3), 0 0 15px rgba(159, 95, 255, 0.2);
+            transform: translateY(-6px);
+        }
+
+        /* Text Neon Glow Effects */
+        .text-glow-purple {
+            text-shadow: 0 0 12px rgba(159, 95, 255, 0.8), 0 0 25px rgba(159, 95, 255, 0.4);
+        }
+
+        .text-glow-cyan {
+            text-shadow: 0 0 12px rgba(0, 229, 255, 0.8), 0 0 25px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090909;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #221b38;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--purple);
+        }
+
+        /* Tilt smooth transitions */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* Animated Gradient Background */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-text {
+            background: linear-gradient(90deg, #9F5FFF, #00E5FF, #FFFFFF, #9F5FFF);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        /* Cyber Pulse Button */
+        .cyber-btn {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Code Inspector Drawer Animation */
+        #codeDrawer {
+            transition: transform 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 selection:bg-neonPurple selection:text-white">
+
+    <div id="loadingScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#090909] transition-opacity duration-700">
+        <div class="relative flex flex-col items-center">
+            <!-- Neon Logo Circle -->
+            <div class="w-28 h-28 mb-6 rounded-full border-2 border-neonPurple flex items-center justify-center shadow-neonPurple animate-pulse relative">
+                <span class="text-4xl font-black font-cyber tracking-tighter text-glow-cyan text-neonCyan">NĐGC</span>
+                <div class="absolute inset-0 rounded-full border border-neonCyan animate-ping opacity-30"></div>
+            </div>
+            
+            <h2 class="text-2xl font-bold font-cyber tracking-widest text-white mb-2">NĐGC</h2>
+            <p id="loadingStatusText" class="text-xs uppercase tracking-widest text-slate-400 mb-6 h-4">Loading The Underground...</p>
+
+            <!-- Progress Bar -->
+            <div class="w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+                <div id="progressBar" class="h-full bg-gradient-to-r from-neonPurple to-neonCyan w-0 transition-all duration-200"></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="heroCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neonPurple/40 to-neonCyan/40 flex items-center justify-center border border-neonPurple/50 group-hover:border-neonCyan transition-all shadow-md">
+                    <span class="font-cyber font-black text-lg text-white group-hover:text-neonCyan">N</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-cyber font-black tracking-wider text-xl text-white group-hover:text-glow-cyan">NĐGC</span>
+                    <span class="text-[9px] uppercase tracking-widest text-neonCyan/80 font-mono">Underground Label</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-slate-300 hover:text-neonCyan transition-colors hover:text-glow-cyan">Home</a>
+                <a href="#members" class="text-sm font-medium text-slate-300 hover:text-neonCyan transition-colors hover:text-glow-cyan">Members</a>
+                <a href="#music" class="text-sm font-medium text-slate-300 hover:text-neonCyan transition-colors hover:text-glow-cyan">Music</a>
+                <a href="#social" class="text-sm font-medium text-slate-300 hover:text-neonCyan transition-colors hover:text-glow-cyan">Social</a>
+                <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-neonCyan transition-colors hover:text-glow-cyan">Contact</a>
+            </nav>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-3">
+                <button id="toggleCodeBtn" title="View Source Files (GitHub Pages Ready)" class="px-3.5 py-1.5 text-xs font-mono rounded-lg glass-panel text-neonCyan border border-neonCyan/30 hover:bg-neonCyan/10 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i>
+                    <span class="hidden sm:inline">Source Docs</span>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" aria-label="Toggle menu" class="md:hidden p-2 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-darkBg/95 backdrop-blur-xl px-4 py-5 space-y-4">
+            <a href="#home" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-neonCyan">Home</a>
+            <a href="#members" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-neonCyan">Members</a>
+            <a href="#music" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-neonCyan">Music</a>
+            <a href="#social" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-neonCyan">Social</a>
+            <a href="#contact" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-neonCyan">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <main class="relative z-10">
+
+        <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 py-16 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+                <!-- Glowing Tag -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-neonPurple/40 mb-8 shadow-neonPurple">
+                    <span class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+                    <span class="text-xs font-mono uppercase tracking-widest text-slate-300">New Wave Music Collective</span>
+                </div>
+
+                <!-- Giant Logo Display -->
+                <h1 class="text-6xl sm:text-8xl md:text-9xl font-black font-cyber tracking-tight mb-4 animated-gradient-text drop-shadow-[0_10px_20px_rgba(159,95,255,0.3)]">
+                    NĐGC
+                </h1>
+
+                <!-- Slogan & Bio -->
+                <p class="text-xl sm:text-2xl font-cyber font-bold text-neonCyan mb-4 tracking-wide text-glow-cyan">
+                    "NĐGC — New Wave From The Underground"
+                </p>
+                <p class="max-w-2xl text-slate-400 text-sm sm:text-base leading-relaxed mb-10 font-light">
+                    A collective of underground artists blending New Wave, Hyperpop and modern alternative sounds. Pushing boundaries and defining the next generation of sound.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                    <button onclick="playTrack(0)" class="cyber-btn px-8 py-3.5 rounded-xl bg-gradient-to-r from-neonPurple to-neonCyan text-black font-bold text-sm tracking-wider uppercase shadow-neonPurple hover:opacity-90 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-play"></i>
+                        Listen Now
+                    </button>
+                    <a href="#social" class="cyber-btn px-8 py-3.5 rounded-xl glass-panel text-white font-bold text-sm tracking-wider uppercase border border-white/20 hover:border-neonCyan hover:text-neonCyan transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Follow Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="members" class="py-24 px-4 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black font-cyber text-white mb-3 tracking-wide">
+                    MEET THE <span class="text-neonCyan text-glow-cyan">MEMBERS</span>
+                </h2>
+                <p class="text-slate-400 font-mono text-sm uppercase tracking-widest">The Voices Behind NĐGC</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-neonPurple to-neonCyan mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Members Grid (5 Cards Responsive) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                
+                <!-- MEMBER 1: NOXIOUS -->
+                <div class="glass-card tilt-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-neonPurple to-neonCyan mb-5 relative group-hover:scale-105 transition-transform duration-300">
+                        <img data-member-key="NOXIOUS" src="assets/images/noxious.jpg" onerror="this.src='https://placehold.co/300x300/12121c/9F5FFF?text=NOXIOUS'" alt="NOXIOUS" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <h3 class="text-xl font-bold font-cyber text-white mb-1 group-hover:text-neonCyan transition-colors">NOXIOUS</h3>
+                    <span class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-neonPurple/20 text-neonPurple border border-neonPurple/30 mb-6">Artist</span>
+                    
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/10 w-full justify-center">
+                        <a href="https://youtube.com/@noxiouslyne?si=fXvZW5oHlYbJq0qU" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-red-500 hover:border-red-500/50 transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MEMBER 2: HEXXO -->
+                <div class="glass-card tilt-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-neonPurple to-neonCyan mb-5 relative group-hover:scale-105 transition-transform duration-300">
+                        <img data-member-key="HEXXO" src="assets/images/hexxo.jpg" onerror="this.src='https://placehold.co/300x300/12121c/00E5FF?text=HEXXO'" alt="HEXXO" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <h3 class="text-xl font-bold font-cyber text-white mb-1 group-hover:text-neonCyan transition-colors">HEXXO</h3>
+                    <span class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-neonPurple/20 text-neonPurple border border-neonPurple/30 mb-6">Artist</span>
+                    
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/10 w-full justify-center">
+                        <a href="https://youtube.com/@hexxonewwave?si=dg-SgVCeQmWO8Q2c" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-red-500 hover:border-red-500/50 transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@wakeuphexxo?_r=1&_t=ZS-9A7nJt8JLEK" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan/50 transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://on.soundcloud.com/nKVKaAZqaFgSDw4r54" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-orange-500 hover:border-orange-500/50 transition-all">
+                            <i class="fa-brands fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MEMBER 3: THOKAWI -->
+                <div class="glass-card tilt-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-neonPurple to-neonCyan mb-5 relative group-hover:scale-105 transition-transform duration-300">
+                        <img data-member-key="THOKAWI" src="assets/images/thokawi.jpg" onerror="this.src='https://placehold.co/300x300/12121c/9F5FFF?text=THOKAWI'" alt="THOKAWI" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <h3 class="text-xl font-bold font-cyber text-white mb-1 group-hover:text-neonCyan transition-colors">THOKAWI</h3>
+                    <span class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-neonPurple/20 text-neonPurple border border-neonPurple/30 mb-6">Artist</span>
+                    
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/10 w-full justify-center">
+                        <a href="https://youtube.com/@wakeupkawi?si=cjBDy7vu4z9Oc776" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-red-500 hover:border-red-500/50 transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@wakeupgvyx?_r=1&_t=ZS-9A7nhS0sYlQ" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan/50 transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://on.soundcloud.com/g0mTp33QHXgTKBHpyo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-orange-500 hover:border-orange-500/50 transition-all">
+                            <i class="fa-brands fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MEMBER 4: LILZIDDY -->
+                <div class="glass-card tilt-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-neonPurple to-neonCyan mb-5 relative group-hover:scale-105 transition-transform duration-300">
+                        <img data-member-key="LILZIDDY" src="assets/images/lilziddy.jpg" onerror="this.src='https://placehold.co/300x300/12121c/00E5FF?text=LILZIDDY'" alt="LILZIDDY" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <h3 class="text-xl font-bold font-cyber text-white mb-1 group-hover:text-neonCyan transition-colors">LILZIDDY</h3>
+                    <span class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-neonPurple/20 text-neonPurple border border-neonPurple/30 mb-6">Artist</span>
+                    
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/10 w-full justify-center">
+                        <a href="https://youtube.com/@zzqynz.o?si=IhUG3X6hvTZuCA38" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-red-500 hover:border-red-500/50 transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@laynyclamdongluc?_r=1&_t=ZS-9A7nncVdj2U" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan/50 transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://on.soundcloud.com/IhNaYUPey70ldGC3Vj" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-orange-500 hover:border-orange-500/50 transition-all">
+                            <i class="fa-brands fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MEMBER 5: ZURA -->
+                <div class="glass-card tilt-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-neonPurple to-neonCyan mb-5 relative group-hover:scale-105 transition-transform duration-300">
+                        <img data-member-key="ZURA" src="assets/images/zura.jpg" onerror="this.src='https://placehold.co/300x300/12121c/9F5FFF?text=ZURA'" alt="ZURA" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <h3 class="text-xl font-bold font-cyber text-white mb-1 group-hover:text-neonCyan transition-colors">ZURA</h3>
+                    <span class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-neonPurple/20 text-neonPurple border border-neonPurple/30 mb-6">Artist</span>
+                    
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/10 w-full justify-center">
+                        <a href="https://youtube.com/@youngzura?si=_00F_bq7Q6vHRv62" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-red-500 hover:border-red-500/50 transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@zura.dep.zai?_r=1&_t=ZS-9A7o7hOsKlo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-neonCyan hover:border-neonCyan/50 transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://on.soundcloud.com/dnpvxz4TcFeZRAnjWu" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-slate-300 hover:text-orange-500 hover:border-orange-500/50 transition-all">
+                            <i class="fa-brands fa-soundcloud"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="music" class="py-20 px-4 max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-5xl font-black font-cyber text-white mb-3">
+                    FEATURED <span class="text-neonPurple text-glow-purple">RELEASES</span>
+                </h2>
+                <p class="text-slate-400 font-mono text-sm uppercase tracking-widest">Selected tracks from the team</p>
+            </div>
+
+            <!-- Tracklist Glass Table -->
+            <div id="playlistContainer" class="glass-panel rounded-2xl p-4 sm:p-6 space-y-3">
+                <!-- Dynamic audio tracks will be rendered by JS -->
+            </div>
+        </section>
+
+        <section id="social" class="py-24 px-4 max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-5xl font-black font-cyber text-white mb-4">
+                NĐGC <span class="text-neonCyan text-glow-cyan">OFFICIAL</span>
+            </h2>
+            <p class="text-slate-400 font-mono text-sm uppercase tracking-widest mb-12">Connect with us on official channels</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- YouTube Official -->
+                <a href="https://youtube.com/@ngudaigaygo?si=IPGe1oTnQ6eqzBUO" target="_blank" rel="noopener noreferrer" class="cyber-btn glass-panel p-8 rounded-2xl border border-red-500/20 hover:border-red-500 flex flex-col items-center group">
+                    <i class="fa-brands fa-youtube text-5xl text-red-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <span class="font-cyber font-bold text-lg text-white mb-1">YouTube Official</span>
+                    <span class="text-xs text-slate-400">@ngudaigaygo</span>
+                </a>
+
+                <!-- TikTok Official -->
+                <a href="https://www.tiktok.com/@tu.dai.gay.can?_r=1&_t=ZS-9A7oJNeQ9tE" target="_blank" rel="noopener noreferrer" class="cyber-btn glass-panel p-8 rounded-2xl border border-neonCyan/20 hover:border-neonCyan flex flex-col items-center group">
+                    <i class="fa-brands fa-tiktok text-5xl text-neonCyan mb-4 group-hover:scale-110 transition-transform"></i>
+                    <span class="font-cyber font-bold text-lg text-white mb-1">TikTok Official</span>
+                    <span class="text-xs text-slate-400">@tu.dai.gay.can</span>
+                </a>
+
+                <!-- SoundCloud Official -->
+                <a href="https://on.soundcloud.com/O5nPuLVv6RVWKWp7nI" target="_blank" rel="noopener noreferrer" class="cyber-btn glass-panel p-8 rounded-2xl border border-orange-500/20 hover:border-orange-500 flex flex-col items-center group">
+                    <i class="fa-brands fa-soundcloud text-5xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <span class="font-cyber font-bold text-lg text-white mb-1">SoundCloud Official</span>
+                    <span class="text-xs text-slate-400">NĐGC Underground</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="musicPlayerWidget" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-96 glass-panel border border-neonPurple/40 rounded-2xl p-4 shadow-2xl transition-all duration-300">
+        <!-- Visualizer Bar Above Player -->
+        <canvas id="playerVisualizer" class="w-full h-8 mb-2 rounded-md bg-black/40"></canvas>
+
+        <div class="flex items-center gap-3">
+            <!-- Cover Art -->
+            <div class="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-neonCyan/30">
+                <img id="playerThumb" src="https://placehold.co/150x150/12121c/9F5FFF?text=N%C2%90GC" alt="Cover" class="w-full h-full object-cover">
+                <div id="playingBadge" class="absolute inset-0 bg-black/40 hidden flex items-center justify-center">
+                    <div class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></div>
+                </div>
+            </div>
+
+            <!-- Track Info -->
+            <div class="flex-1 min-w-0">
+                <h4 id="playerTitle" class="text-sm font-bold font-cyber truncate text-white">Track Title</h4>
+                <p id="playerArtist" class="text-xs text-slate-400 truncate">NĐGC Artist</p>
+                <div class="text-[10px] text-neonCyan font-mono mt-1" id="timeDisplay">0:00 / 0:00</div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-2">
+                <button id="prevBtn" class="p-2 text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="playPauseBtn" class="w-10 h-10 rounded-full bg-gradient-to-tr from-neonPurple to-neonCyan text-black flex items-center justify-center shadow-neonPurple hover:scale-105 transition-transform">
+                    <i id="playIcon" class="fa-solid fa-play ml-0.5"></i>
+                </button>
+                <button id="nextBtn" class="p-2 text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+        </div>
+
+        <!-- Progress Seek Bar -->
+        <div class="mt-3">
+            <input type="range" id="seekSlider" value="0" min="0" max="100" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-neonCyan">
+        </div>
+    </div>
+
+    <div id="codeDrawer" class="fixed inset-y-0 right-0 z-50 w-full md:w-[600px] bg-[#0c0c14] border-l border-neonCyan/30 shadow-2xl translate-x-full flex flex-col">
+        <div class="p-4 border-b border-white/10 flex items-center justify-between glass-panel">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-folder-tree text-neonCyan"></i>
+                <h3 class="font-cyber font-bold text-white text-sm">Project Source Files (GitHub Ready)</h3>
+            </div>
+            <button id="closeDrawerBtn" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+
+        <!-- File Tab Selectors -->
+        <div class="flex border-b border-white/10 bg-black/50 text-xs font-mono">
+            <button class="tab-btn active px-4 py-3 text-neonCyan border-b-2 border-neonCyan font-bold" data-tab="readme">README.md</button>
+            <button class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent hover:text-white" data-tab="html">index.html</button>
+            <button class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent hover:text-white" data-tab="css">style.css</button>
+            <button class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent hover:text-white" data-tab="js">script.js</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="flex-1 overflow-y-auto p-4 font-mono text-xs leading-relaxed text-slate-300">
+            <pre id="tabContentReadme" class="tab-content whitespace-pre-wrap">
+# NĐGC — Underground Music Collective Portfolio
+
+Website giới thiệu chính thức cho nhóm nhạc underground **NĐGC (New Wave / Hyperpop / Underground)**.
+
+## 🚀 Cấu trúc File (Production Structure):
+```
+/
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│   ├── images/
+│   │   ├── noxious.jpg
+│   │   ├── hexxo.jpg
+│   │   ├── thokawi.jpg
+│   │   ├── lilziddy.jpg
+│   │   └── zura.jpg
+│   └── audio/
+│       ├── song1.mp3
+│       └── song2.mp3
+└── README.md
+```
+
+## 🛠️ Hướng Dẫn Deploy GitHub Pages:
+1. Đưa toàn bộ file lên Repository trên GitHub.
+2. Vào **Settings** -> **Pages**.
+3. Chọn Branch `main` hoặc `master` và thư mục `/ (root)`.
+4. Nhấn **Save**. Website sẽ hoạt động ngay lập tức không cần build step!
+            </pre>
+
+            <pre id="tabContentHtml" class="tab-content hidden text-emerald-400 whitespace-pre-wrap">
+&lt;!-- HTML STRUCTURE --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+  &lt;!-- Modular structure separated for production deployment --&gt;
+  &lt;body class="bg-[#090909] text-white"&gt;...&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+
+            <pre id="tabContentCss" class="tab-content hidden text-cyan-300 whitespace-pre-wrap">
+/* style.css */
+:root {
+  --bg: #090909;
+  --purple: #9F5FFF;
+  --cyan: #00E5FF;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+}
+            </pre>
+
+            <pre id="tabContentJs" class="tab-content hidden text-purple-300 whitespace-pre-wrap">
+// script.js
+console.log("NĐGC Underground Active");
+// Web Audio API Synth Generator Included
+            </pre>
+        </div>
+    </div>
+
+    <footer id="contact" class="glass-panel border-t border-white/10 py-12 px-4 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-neonPurple/30 flex items-center justify-center border border-neonPurple/50">
+                    <span class="font-cyber font-bold text-sm text-neonCyan">N</span>
+                </div>
+                <span class="font-cyber font-bold text-lg tracking-wider text-white">NĐGC</span>
+            </div>
+
+            <p class="text-xs text-slate-400 font-mono">
+                "Made With Passion For Music" — Underground New Wave Collective
+            </p>
+
+            <p class="text-xs text-slate-500 font-mono">
+                © NĐGC. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <script>
+        /* ============================================================
+           NĐGC — CUSTOM CONTENT
+           CHỈ CẦN SỬA KHU VỰC NÀY ĐỂ ĐỔI LOGO / ẢNH / NHẠC / TEXT
+           ============================================================ */
+        const SITE_CONFIG = {
+            logo: "assets/images/logo.png",
+            siteName: "NĐGC",
+            tagline: "NĐGC — New Wave From The Underground",
+            description: "A collective of underground artists blending New Wave, Hyperpop and modern alternative sounds."
+        };
+
+        const MEMBER_IMAGES = {
+            NOXIOUS: "assets/images/noxious.jpg",
+            HEXXO: "assets/images/hexxo.jpg",
+            THOKAWI: "assets/images/thokawi.jpg",
+            LILZIDDY: "assets/images/lilziddy.jpg",
+            ZURA: "assets/images/zura.jpg"
+        };
+
+        // Thay src bằng file .mp3/.wav/.ogg của bạn.
+        const playlist = [
+            {
+                title: "Withered Flower",
+                artist: "ZURA",
+                duration: "03:17",
+                src: "assets/audio/song1.mp3",
+                thumb: "assets/images/song1.jpg"
+            },
+            {
+                title: "DIVOIEM",
+                artist: "ZURA",
+                duration: "02:11",
+                src: "assets/audio/song2.mp3",
+                thumb: "assets/images/song2.jpg"
+            },
+            {
+                title: "210408",
+                artist: "ZURA",
+                duration: "02:41",
+                src: "assets/audio/song3.mp3",
+                thumb: "assets/images/song3.jpg"
+            }
+        ];
+
+        let currentTrack = 0;
+        let isPlaying = false;
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        window.addEventListener('load', () => {
+            const progressBar = document.getElementById('progressBar');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const statusText = document.getElementById('loadingStatusText');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 15;
+                if (progressBar) progressBar.style.width = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    if (statusText) statusText.innerText = "READY TO RAVE";
+                    setTimeout(() => {
+                        if (loadingScreen) {
+                            loadingScreen.style.opacity = '0';
+                            setTimeout(() => loadingScreen.style.display = 'none', 700);
+                        }
+                    }, 300);
+                }
+            }, 100);
+
+            applySiteConfig();
+            initHeroCanvas();
+            renderPlaylist();
+            setupPlayer();
+            setupCardTilt();
+            setupCodeDrawer();
+        });
+
+        function applySiteConfig() {
+            document.querySelectorAll('[data-member-key]').forEach(img => {
+                const key = img.dataset.memberKey;
+                if (MEMBER_IMAGES[key]) img.src = MEMBER_IMAGES[key];
+            });
+            document.title = SITE_CONFIG.siteName + " — New Wave From The Underground";
+        }
+
+        function initHeroCanvas() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize, { passive: true });
+
+            const particles = Array.from({ length: 45 }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2 + 1,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                color: Math.random() > 0.5 ? '#9F5FFF' : '#00E5FF',
+                alpha: Math.random() * 0.6 + 0.2
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        function formatTime(seconds) {
+            if (!Number.isFinite(seconds)) return '0:00';
+            const m = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+            return `${m}:${sec}`;
+        }
+
+        function loadTrack(index, autoplay = false) {
+            const track = playlist[index];
+            if (!track) return;
+            audioPlayer.src = track.src;
+            audioPlayer.load();
+            updatePlayerUI();
+            if (autoplay) {
+                audioPlayer.play().catch(() => { isPlaying = false; updatePlayerUI(); });
+            }
+        }
+
+        function renderPlaylist() {
+            const container = document.getElementById('playlistContainer');
+            if (!container) return;
+
+            container.innerHTML = playlist.map((track, i) => `
+                <div onclick="playTrack(${i})" class="track-item flex items-center justify-between p-3.5 rounded-xl hover:bg-white/5 cursor-pointer transition-all border border-transparent hover:border-neonCyan/30 group">
+                    <div class="flex items-center gap-4">
+                        <span class="font-mono text-xs text-slate-500 group-hover:text-neonCyan w-4">${i + 1}</span>
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-white/10 shrink-0">
+                            <img src="${track.thumb}" alt="${track.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold font-cyber text-white group-hover:text-neonCyan transition-colors">${track.title}</h5>
+                            <p class="text-xs text-slate-400">${track.artist}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs font-mono text-slate-500">${track.duration}</span>
+                        <button class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-neonCyan opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function playTrack(index) {
+            currentTrack = index;
+            isPlaying = true;
+            loadTrack(index, true);
+        }
+
+        function updatePlayerUI() {
+            const track = playlist[currentTrack];
+            document.getElementById('playerTitle').innerText = track.title;
+            document.getElementById('playerArtist').innerText = track.artist;
+            const thumb = document.getElementById('playerThumb');
+            thumb.src = track.thumb;
+            thumb.onerror = () => { thumb.src = 'https://placehold.co/150x150/12121c/9F5FFF?text=N%C2%90GC'; };
+            document.getElementById('timeDisplay').innerText =
+                `${formatTime(audioPlayer.currentTime)} / ${formatTime(audioPlayer.duration)}`;
+            
+            const playIcon = document.getElementById('playIcon');
+            if (isPlaying) {
+                playIcon.className = 'fa-solid fa-pause';
+            } else {
+                playIcon.className = 'fa-solid fa-play ml-0.5';
+            }
+        }
+
+        function setupPlayer() {
+            const playBtn = document.getElementById('playPauseBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const seekSlider = document.getElementById('seekSlider');
+
+            loadTrack(currentTrack, false);
+
+            playBtn.addEventListener('click', () => {
+                if (audioPlayer.paused) {
+                    audioPlayer.play().catch(() => {});
+                } else {
+                    audioPlayer.pause();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+                playTrack(currentTrack);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentTrack = (currentTrack + 1) % playlist.length;
+                playTrack(currentTrack);
+            });
+
+            audioPlayer.addEventListener('play', () => {
+                isPlaying = true;
+                updatePlayerUI();
+                drawCanvasVisualizer();
+            });
+            audioPlayer.addEventListener('pause', () => {
+                isPlaying = false;
+                updatePlayerUI();
+            });
+            audioPlayer.addEventListener('ended', () => {
+                currentTrack = (currentTrack + 1) % playlist.length;
+                loadTrack(currentTrack, true);
+            });
+            audioPlayer.addEventListener('loadedmetadata', updatePlayerUI);
+            audioPlayer.addEventListener('timeupdate', () => {
+                if (audioPlayer.duration) seekSlider.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                document.getElementById('timeDisplay').innerText =
+                    `${formatTime(audioPlayer.currentTime)} / ${formatTime(audioPlayer.duration)}`;
+            });
+            seekSlider.addEventListener('input', () => {
+                if (audioPlayer.duration) audioPlayer.currentTime = (seekSlider.value / 100) * audioPlayer.duration;
+            });
+            updatePlayerUI();
+        }
+
+        function drawCanvasVisualizer() {
+            const canvas = document.getElementById('playerVisualizer');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            function renderBars() {
+                if (!isPlaying) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    return;
+                }
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const bars = 24;
+                const barWidth = canvas.width / bars;
+
+                for (let i = 0; i < bars; i++) {
+                    const height = Math.random() * canvas.height * 0.8 + 4;
+                    const x = i * barWidth;
+                    const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
+                    gradient.addColorStop(0, '#9F5FFF');
+                    gradient.addColorStop(1, '#00E5FF');
+
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(x + 2, canvas.height - height, barWidth - 4, height);
+                }
+
+                setTimeout(() => requestAnimationFrame(renderBars), 80);
+            }
+            renderBars();
+        }
+
+        function setupCardTilt() {
+            const cards = document.querySelectorAll('.tilt-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 12;
+                    const rotateY = (centerX - x) / 12;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                });
+            });
+        }
+
+        function setupCodeDrawer() {
+            const drawer = document.getElementById('codeDrawer');
+            const toggleBtn = document.getElementById('toggleCodeBtn');
+            const closeBtn = document.getElementById('closeDrawerBtn');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            toggleBtn.addEventListener('click', () => {
+                drawer.classList.remove('translate-x-full');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                drawer.classList.add('translate-x-full');
+            });
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => {
+                        b.classList.remove('active', 'text-neonCyan', 'border-neonCyan', 'font-bold');
+                        b.classList.add('text-slate-400', 'border-transparent');
+                    });
+                    btn.classList.add('active', 'text-neonCyan', 'border-neonCyan', 'font-bold');
+                    btn.classList.remove('text-slate-400', 'border-transparent');
+
+                    const tabTarget = btn.getAttribute('data-tab');
+                    tabContents.forEach(content => content.classList.add('hidden'));
+
+                    if (tabTarget === 'readme') document.getElementById('tabContentReadme').classList.remove('hidden');
+                    if (tabTarget === 'html') document.getElementById('tabContentHtml').classList.remove('hidden');
+                    if (tabTarget === 'css') document.getElementById('tabContentCss').classList.remove('hidden');
+                    if (tabTarget === 'js') document.getElementById('tabContentJs').classList.remove('hidden');
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
