@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giao Diện Trình Phát Nhạc</title>
+
+  <!-- 1. Liên kết file CSS (Đảm bảo tên file CSS khớp với tên file thực tế của bạn) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Phần hiển thị thông tin bài hát / giao diện -->
+    <div class="player-card">
+      <div class="disc-container">
+        <div class="disc" id="disc"></div>
+      </div>
+
+      <h2 id="song-title">Song 1</h2>
+      <p id="artist-name">Audio Track</p>
+
+      <!-- File âm thanh mp3 lấy từ tệp ZIP -->
+      <audio id="audio-player" src="song1.mp3" preload="metadata"></audio>
+
+      <!-- Thanh điều khiển -->
+      <div class="controls">
+        <button id="btn-play" class="control-btn">Play / Pause</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Nhúng file JavaScript từ tệp ZIP -->
+  <script src="Script JS.js"></script>
+
+  <!-- 3. Đoạn script hỗ trợ kích hoạt hiệu ứng & xử lý tương tác phát nhạc -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio-player");
+      const playBtn = document.getElementById("btn-play");
+      const disc = document.getElementById("disc");
+
+      if (playBtn && audio) {
+        playBtn.addEventListener("click", function () {
+          if (audio.paused) {
+            audio.play().then(() => {
+              if (disc) disc.classList.add("playing");
+            }).catch(error => {
+              console.error("Không thể phát file audio:", error);
+            });
+          } else {
+            audio.pause();
+            if (disc) disc.classList.remove("playing");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
