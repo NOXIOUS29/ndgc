@@ -1,0 +1,3601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="NOVA — Music Collective. Sound • Vision • Energy">
+
+<title>NOVA — Music Team</title>
+
+<!-- =========================================================
+     NOVA — SINGLE FILE MUSIC TEAM WEBSITE
+     Everything is contained inside this index.html.
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --bg: #050505;
+    --bg2: #08080d;
+    --bg3: #0d0d14;
+
+    --purple: #9b5cff;
+    --blue: #38a7ff;
+    --magenta: #e94cff;
+
+    --text: #ffffff;
+    --muted: #9292a4;
+
+    --glass: rgba(255,255,255,.045);
+    --border: rgba(255,255,255,.09);
+
+    --radius: 24px;
+
+    --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(101,44,180,.16), transparent 30%),
+        linear-gradient(180deg, #050505 0%, #08080d 50%, #050505 100%);
+    color: var(--text);
+    font-family: "Space Grotesk", Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   PERFORMANCE / ACCESSIBILITY
+========================================================= */
+
+::selection {
+    background: rgba(155,92,255,.35);
+    color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+#scene {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.grid-floor {
+    position: absolute;
+    width: 140%;
+    height: 55%;
+    left: -20%;
+    bottom: -13%;
+    opacity: .18;
+
+    background-image:
+        linear-gradient(rgba(93,65,160,.45) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(93,65,160,.45) 1px, transparent 1px);
+
+    background-size: 55px 55px;
+
+    transform:
+        perspective(600px)
+        rotateX(64deg)
+        translateZ(0);
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 70%,
+        transparent
+    );
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: .25;
+    transform: translate3d(0,0,0);
+}
+
+.glow.one {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    left: -120px;
+    background: #762fff;
+}
+
+.glow.two {
+    width: 260px;
+    height: 260px;
+    top: 45%;
+    right: -130px;
+    background: #167bff;
+}
+
+.glow.three {
+    width: 240px;
+    height: 240px;
+    bottom: 5%;
+    left: 35%;
+    background: #d52fff;
+    opacity: .12;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 0 10px rgba(130,100,255,.8);
+    opacity: .5;
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav-wrap {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0 18px;
+}
+
+.nav {
+    max-width: 1180px;
+    height: 62px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: rgba(7,7,12,.74);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+.nav-logo {
+    font-family: Orbitron, sans-serif;
+    font-weight: 800;
+    letter-spacing: .18em;
+    font-size: 17px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #a96dff,
+        #52b9ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 10px 13px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #aaaab8;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 5px;
+    height: 1px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    transition: transform .25s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+    transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.04);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+    width: 18px;
+    height: 1px;
+    margin: 4px auto;
+    background: white;
+}
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    position: relative;
+    width: min(1180px, calc(100% - 36px));
+    margin: 0 auto;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section-head {
+    margin-bottom: 42px;
+}
+
+.eyebrow {
+    color: #9c83ff;
+    font-family: Orbitron, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .25em;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    line-height: 1;
+    letter-spacing: -.04em;
+}
+
+.section-subtitle {
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: .08em;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100svh;
+    width: 100%;
+    max-width: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        110px 20px
+        70px;
+
+    overflow: hidden;
+}
+
+.hero-inner {
+    width: min(900px, 100%);
+    text-align: center;
+}
+
+.logo-stage {
+    position: relative;
+    width: min(320px, 72vw);
+    height: min(320px, 72vw);
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    transform: translate3d(0,0,0);
+}
+
+.logo-stage::before {
+    content: "";
+    position: absolute;
+    inset: 18%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(150,82,255,.25),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+}
+
+.logo-ring {
+    position: absolute;
+    inset: 7%;
+
+    border: 1px solid rgba(145,99,255,.28);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 35px rgba(125,67,255,.13),
+        inset 0 0 25px rgba(73,155,255,.06);
+
+    animation: spin 24s linear infinite;
+}
+
+.logo-ring::before,
+.logo-ring::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: white;
+    box-shadow:
+        0 0 10px #a968ff,
+        0 0 20px #a968ff;
+}
+
+.logo-ring::before {
+    top: -3px;
+    left: 50%;
+}
+
+.logo-ring::after {
+    bottom: 15%;
+    right: 5%;
+    opacity: .5;
+}
+
+.logo-image {
+    position: relative;
+    z-index: 2;
+
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 16px rgba(148,81,255,.35))
+        drop-shadow(0 0 45px rgba(60,130,255,.12));
+
+    animation: floatLogo 5s ease-in-out infinite;
+}
+
+.logo-fallback {
+    position: absolute;
+    z-index: 1;
+
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(44px, 11vw, 80px);
+    font-weight: 800;
+    letter-spacing: .08em;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #a365ff,
+            #45b5ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero h1 {
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(42px, 9vw, 82px);
+    line-height: .9;
+    letter-spacing: -.07em;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 15%,
+            #b36cff 48%,
+            #5ebaff 85%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-label {
+    margin-top: 12px;
+
+    color: #bcbcc9;
+    font-family: Orbitron, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5em;
+}
+
+.hero-tagline {
+    margin: 24px auto 0;
+
+    color: #858594;
+    font-size: clamp(11px, 2vw, 14px);
+    letter-spacing: .24em;
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    margin-top: 34px;
+}
+
+.btn {
+    position: relative;
+
+    min-width: 155px;
+    padding: 14px 20px;
+
+    border: 1px solid rgba(163,112,255,.4);
+    border-radius: 13px;
+
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155,92,255,.16),
+            rgba(48,146,255,.08)
+        );
+
+    font-family: Orbitron, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(78,42,150,.14),
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:
+        transform .2s var(--ease),
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: rgba(170,112,255,.75);
+
+    box-shadow:
+        0 12px 32px rgba(96,45,190,.22),
+        0 0 22px rgba(116,76,255,.12);
+}
+
+.btn:active {
+    transform: translateY(1px) scale(.97);
+}
+
+.btn.primary {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(145,74,255,.42),
+            rgba(45,119,255,.28)
+        );
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #656573;
+    font-size: 9px;
+    letter-spacing: .25em;
+}
+
+/* =========================================================
+   3D NOVA
+========================================================= */
+
+.nova-3d {
+    min-height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.nova-orbit {
+    position: relative;
+
+    width: min(550px, 90vw);
+    height: min(380px, 70vw);
+
+    display: grid;
+    place-items: center;
+
+    perspective: 800px;
+}
+
+.nova-word {
+    position: relative;
+    z-index: 3;
+
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(55px, 14vw, 120px);
+    font-weight: 800;
+    letter-spacing: .12em;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff 10%,
+            #a15cff 42%,
+            #47b7ff 68%,
+            #ffffff 90%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 15px rgba(142,79,255,.25));
+
+    animation: novaFloat 6s ease-in-out infinite;
+}
+
+.orbit {
+    position: absolute;
+
+    width: 90%;
+    height: 42%;
+
+    border: 1px solid rgba(161,95,255,.32);
+    border-radius: 50%;
+
+    transform:
+        rotateX(66deg)
+        rotateZ(-12deg);
+
+    box-shadow:
+        0 0 25px rgba(112,73,255,.1),
+        inset 0 0 20px rgba(60,130,255,.05);
+
+    animation: orbitSpin 16s linear infinite;
+}
+
+.orbit.two {
+    width: 72%;
+    height: 33%;
+    transform:
+        rotateX(66deg)
+        rotateZ(48deg);
+
+    border-color: rgba(58,168,255,.2);
+
+    animation-duration: 21s;
+    animation-direction: reverse;
+}
+
+.light-sweep {
+    position: absolute;
+    z-index: 4;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    filter: blur(2px);
+    opacity: .18;
+
+    transform: rotate(-12deg);
+    animation: sweep 5s ease-in-out infinite;
+}
+
+.nova-caption {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    color: #777789;
+    font-size: 10px;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: .45em;
+}
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.member-card {
+    position: relative;
+
+    min-height: 390px;
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .15s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.member-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at var(--mx,50%) var(--my,0%),
+            rgba(155,92,255,.16),
+            transparent 35%
+        );
+
+    opacity: .8;
+    pointer-events: none;
+}
+
+.member-card:hover {
+    border-color: rgba(156,96,255,.35);
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.28),
+        0 0 25px rgba(102,59,190,.08);
+}
+
+.member-image {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 18px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            #1d1532,
+            #08080d 70%
+        );
+}
+
+.member-image::after {
+    content: "NOVA";
+
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    font-family: Orbitron, sans-serif;
+    font-weight: 800;
+    letter-spacing: .15em;
+    font-size: 22px;
+
+    color: rgba(255,255,255,.2);
+}
+
+.member-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-number {
+    margin-top: 17px;
+
+    font-size: 9px;
+    color: #777788;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: .18em;
+}
+
+.member-name {
+    margin-top: 7px;
+
+    font-family: Orbitron, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.member-role {
+    margin-top: 4px;
+
+    color: #a46dff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .17em;
+}
+
+.member-bio {
+    margin-top: 9px;
+
+    color: #7e7e8c;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.socials {
+    display: flex;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.socials a {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 9px;
+
+    color: #aaaaba;
+    background: rgba(255,255,255,.035);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
+
+.socials a:hover {
+    transform: translateY(-2px);
+    color: white;
+    border-color: rgba(155,92,255,.5);
+}
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.player {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    padding: 24px;
+
+    border: 1px solid rgba(155,92,255,.16);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.28),
+        inset 0 1px rgba(255,255,255,.05);
+}
+
+.player-left {
+    min-width: 0;
+}
+
+.player-art {
+    position: relative;
+
+    width: min(100%, 410px);
+    margin: 0 auto;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 22px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #28194a,
+            #09090e 70%
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.35);
+}
+
+.player-art::before {
+    content: "";
+
+    position: absolute;
+    z-index: 1;
+
+    inset: -30%;
+
+    border: 1px solid rgba(155,92,255,.22);
+    border-radius: 50%;
+
+    animation: spin 20s linear infinite;
+}
+
+.player-art img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition:
+        filter .4s ease,
+        transform .5s ease;
+}
+
+.player.playing .player-art img {
+    filter:
+        saturate(1.15)
+        drop-shadow(0 0 22px rgba(140,80,255,.22));
+}
+
+.player-info {
+    padding: 20px 4px 0;
+}
+
+.now-playing {
+    color: #777787;
+    font-family: Orbitron, sans-serif;
+    font-size: 9px;
+    letter-spacing: .2em;
+}
+
+.track-title {
+    margin-top: 8px;
+
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(18px, 3vw, 25px);
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-artist {
+    margin-top: 4px;
+
+    color: #9292a2;
+    font-size: 12px;
+}
+
+.player-right {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.player-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #777787;
+    font-family: Orbitron, sans-serif;
+    font-size: 8px;
+    letter-spacing: .15em;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: #666;
+}
+
+.player.ready .status-dot {
+    background: #52e0a2;
+    box-shadow: 0 0 12px rgba(82,224,162,.5);
+}
+
+.player.error .status-dot {
+    background: #ff5577;
+    box-shadow: 0 0 12px rgba(255,85,119,.5);
+}
+
+.visualizer {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    margin: 22px 0;
+
+    opacity: .6;
+}
+
+.visualizer span {
+    width: 3px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--purple),
+            var(--blue)
+        );
+
+    transform-origin: bottom;
+}
+
+.player.playing .visualizer span {
+    animation: bars .8s ease-in-out infinite alternate;
+}
+
+.visualizer span:nth-child(2) { animation-delay: -.2s; }
+.visualizer span:nth-child(3) { animation-delay: -.5s; }
+.visualizer span:nth-child(4) { animation-delay: -.1s; }
+.visualizer span:nth-child(5) { animation-delay: -.35s; }
+.visualizer span:nth-child(6) { animation-delay: -.6s; }
+.visualizer span:nth-child(7) { animation-delay: -.15s; }
+.visualizer span:nth-child(8) { animation-delay: -.45s; }
+.visualizer span:nth-child(9) { animation-delay: -.25s; }
+.visualizer span:nth-child(10) { animation-delay: -.7s; }
+.visualizer span:nth-child(11) { animation-delay: -.3s; }
+
+.progress-area {
+    margin-top: auto;
+}
+
+.progress {
+    width: 100%;
+    height: 5px;
+
+    border-radius: 10px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: rgba(255,255,255,.09);
+    cursor: pointer;
+}
+
+.progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+    border: 2px solid #0b0b10;
+
+    background: #b275ff;
+
+    box-shadow: 0 0 10px rgba(178,117,255,.5);
+}
+
+.progress::-moz-range-thumb {
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+    border: 2px solid #0b0b10;
+
+    background: #b275ff;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    color: #70707e;
+    font-size: 9px;
+    font-family: Orbitron, sans-serif;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+.control-btn {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 13px;
+
+    background: rgba(255,255,255,.04);
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(155,92,255,.45);
+}
+
+.control-btn:active {
+    transform: scale(.94);
+}
+
+.control-btn.main {
+    width: 56px;
+    height: 56px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(153,87,255,.6),
+            rgba(44,132,255,.45)
+        );
+
+    border-color: rgba(190,140,255,.5);
+
+    box-shadow:
+        0 0 25px rgba(117,65,220,.18);
+}
+
+.volume-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.volume-row span {
+    color: #7d7d8b;
+    font-size: 12px;
+}
+
+.volume {
+    flex: 1;
+}
+
+.playlist {
+    margin-top: 22px;
+
+    max-height: 170px;
+    overflow-y: auto;
+
+    padding-right: 4px;
+}
+
+.playlist::-webkit-scrollbar {
+    width: 3px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: rgba(155,92,255,.3);
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    background: transparent;
+    color: white;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.playlist-item:hover {
+    background: rgba(255,255,255,.035);
+}
+
+.playlist-item.active {
+    border-color: rgba(155,92,255,.25);
+    background: rgba(155,92,255,.08);
+}
+
+.playlist-cover {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 auto;
+
+    border-radius: 8px;
+    object-fit: cover;
+
+    background: #111;
+}
+
+.playlist-text {
+    min-width: 0;
+}
+
+.playlist-title {
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playlist-artist {
+    margin-top: 3px;
+
+    color: #6e6e7b;
+    font-size: 9px;
+}
+
+.youtube-frame {
+    position: fixed;
+
+    width: 2px;
+    height: 2px;
+
+    left: -100px;
+    bottom: -100px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-box {
+    position: relative;
+
+    max-width: 900px;
+
+    padding: clamp(25px, 5vw, 55px);
+
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155,92,255,.07),
+            rgba(42,138,255,.025)
+        );
+}
+
+.about-box::before {
+    content: "NOVA";
+
+    position: absolute;
+    right: 25px;
+    top: 10px;
+
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(50px, 12vw, 130px);
+    font-weight: 800;
+
+    color: rgba(255,255,255,.018);
+}
+
+.about-text {
+    position: relative;
+    z-index: 1;
+
+    color: #b5b5c1;
+    font-size: clamp(17px, 3vw, 25px);
+    line-height: 1.7;
+    letter-spacing: -.01em;
+}
+
+.about-text strong {
+    color: white;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+@media (max-width: 900px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.social-card {
+    position: relative;
+
+    min-height: 150px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+
+    transition:
+        transform .25s var(--ease),
+        border-color .25s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(155,92,255,.4);
+}
+
+.social-icon {
+    font-family: Orbitron, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.social-name {
+    margin-top: 18px;
+
+    font-family: Orbitron, sans-serif;
+    font-size: 13px;
+    letter-spacing: .08em;
+}
+
+.social-handle {
+    margin-top: 4px;
+
+    color: #777785;
+    font-size: 10px;
+}
+
+.social-arrow {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+
+    color: #777788;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    position: relative;
+    z-index: 1;
+
+    width: min(1180px, calc(100% - 36px));
+    margin: auto;
+
+    padding: 45px 0 30px;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: Orbitron, sans-serif;
+    font-weight: 800;
+    letter-spacing: .2em;
+}
+
+.footer-copy {
+    color: #5f5f6c;
+    font-size: 10px;
+    letter-spacing: .1em;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translate3d(0,24px,0);
+    transition:
+        opacity .7s ease,
+        transform .7s var(--ease);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpin {
+    from {
+        transform:
+            rotateX(66deg)
+            rotateZ(0deg);
+    }
+    to {
+        transform:
+            rotateX(66deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes floatLogo {
+    0%,100% {
+        transform: translate3d(0,0,0);
+    }
+
+    50% {
+        transform: translate3d(0,-8px,0);
+    }
+}
+
+@keyframes novaFloat {
+    0%,100% {
+        transform: translate3d(0,0,0) rotateX(0deg);
+    }
+
+    50% {
+        transform: translate3d(0,-7px,0) rotateX(2deg);
+    }
+}
+
+@keyframes sweep {
+    0%,100% {
+        transform:
+            translateX(-55%)
+            rotate(-12deg);
+    }
+
+    50% {
+        transform:
+            translateX(55%)
+            rotate(-12deg);
+    }
+}
+
+@keyframes bars {
+    from {
+        transform: scaleY(.35);
+    }
+
+    to {
+        transform: scaleY(1.6);
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .player {
+        grid-template-columns: 1fr;
+    }
+
+    .player-art {
+        width: min(330px, 80vw);
+    }
+
+    .player-right {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 680px) {
+
+    .nav-wrap {
+        padding: 0 12px;
+    }
+
+    .nav {
+        height: 58px;
+        padding: 0 14px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 10px;
+
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 16px;
+
+        background: rgba(7,7,12,.95);
+
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+
+        transition:
+            opacity .2s ease,
+            transform .2s ease,
+            visibility .2s;
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        padding: 14px;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .section {
+        padding: 85px 0;
+    }
+
+    section {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card {
+        min-height: auto;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-card {
+        min-height: 125px;
+    }
+
+    .player {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .player-right {
+        min-height: auto;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hero-tagline {
+        letter-spacing: .16em;
+        line-height: 1.7;
+    }
+
+    .control-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .control-btn.main {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+/* =========================================================
+   LOW-END DEVICE MODE
+========================================================= */
+
+.low-end .glow {
+    filter: blur(35px);
+}
+
+.low-end .member-card {
+    transform: none !important;
+}
+
+.low-end .grid-floor {
+    opacity: .1;
+}
+
+.low-end .logo-ring,
+.low-end .orbit.two {
+    animation-duration: 40s;
+}
+
+.low-end .light-sweep {
+    display: none;
+}
+
+.low-end .nova-word {
+    animation: none;
+}
+
+.low-end .logo-image {
+    animation: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div id="scene" aria-hidden="true">
+    <div class="grid-floor"></div>
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+
+    <div class="particle" style="left:8%;top:21%"></div>
+    <div class="particle" style="left:17%;top:66%"></div>
+    <div class="particle" style="left:28%;top:32%"></div>
+    <div class="particle" style="left:39%;top:76%"></div>
+    <div class="particle" style="left:51%;top:19%"></div>
+    <div class="particle" style="left:63%;top:58%"></div>
+    <div class="particle" style="left:72%;top:27%"></div>
+    <div class="particle" style="left:81%;top:73%"></div>
+    <div class="particle" style="left:91%;top:39%"></div>
+    <div class="particle" style="left:12%;top:88%"></div>
+    <div class="particle" style="left:46%;top:46%"></div>
+    <div class="particle" style="left:88%;top:84%"></div>
+    <div class="particle" style="left:57%;top:88%"></div>
+    <div class="particle" style="left:34%;top:12%"></div>
+    <div class="particle" style="left:76%;top:11%"></div>
+</div>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<div class="nav-wrap">
+    <nav class="nav">
+
+        <a href="#home" class="nav-logo">NOVA</a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">HOME</a>
+            <a href="#team">TEAM</a>
+            <a href="#music">MUSIC</a>
+            <a href="#about">ABOUT</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+</div>
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <div class="logo-stage">
+
+            <div class="logo-ring"></div>
+
+            <div class="logo-fallback" id="logoFallback">
+                NOVA
+            </div>
+
+            <img
+                id="heroLogo"
+                class="logo-image"
+                src=""
+                alt="NOVA Logo"
+                decoding="async"
+            >
+
+        </div>
+
+        <h1>NOVA</h1>
+
+        <div class="hero-label">
+            MUSIC TEAM
+        </div>
+
+        <div class="hero-tagline">
+            WE CREATE SOUND. WE CREATE VISION.
+        </div>
+
+        <div class="hero-actions">
+
+            <a href="#team" class="btn primary">
+                MEET THE TEAM
+            </a>
+
+            <a href="#music" class="btn">
+                LISTEN NOW
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-hint">
+        SCROLL TO EXPLORE
+    </div>
+
+</section>
+
+<!-- =========================================================
+     3D NOVA
+========================================================= -->
+
+<section class="section nova-3d reveal">
+
+    <div class="nova-orbit">
+
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+
+        <div class="nova-word">
+            N O V A
+        </div>
+
+        <div class="light-sweep"></div>
+
+        <div class="nova-caption">
+            SOUND • VISION • ENERGY
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     TEAM
+========================================================= -->
+
+<section class="section" id="team">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            THE COLLECTIVE
+        </div>
+
+        <h2 class="section-title">
+            MEET NOVA
+        </h2>
+
+        <p class="section-subtitle">
+            9 MINDS. 1 SOUND.
+        </p>
+
+    </div>
+
+    <div class="team-grid" id="teamGrid"></div>
+
+</section>
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<section class="section" id="music">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            NOVA AUDIO SYSTEM
+        </div>
+
+        <h2 class="section-title">
+            MUSIC
+        </h2>
+
+        <p class="section-subtitle">
+            SOUND FROM NOVA.
+        </p>
+
+    </div>
+
+    <div class="player reveal" id="player">
+
+        <div class="player-left">
+
+            <div class="player-art">
+
+                <img
+                    id="playerCover"
+                    src=""
+                    alt="Track cover"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+            <div class="player-info">
+
+                <div class="now-playing">
+                    NOW PLAYING
+                </div>
+
+                <div class="track-title" id="trackTitle">
+                    NOVA TRACK 01
+                </div>
+
+                <div class="track-artist" id="trackArtist">
+                    NOVA
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="player-right">
+
+            <div class="player-status">
+
+                <span id="youtubeStatus">
+                    YOUTUBE PLAYER READY
+                </span>
+
+                <span class="status-dot"></span>
+
+            </div>
+
+            <div class="visualizer" id="visualizer">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div class="progress-area">
+
+                <input
+                    id="progress"
+                    class="progress"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Track progress"
+                >
+
+                <div class="time-row">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+
+            </div>
+
+            <div class="controls">
+
+                <button
+                    class="control-btn"
+                    id="prevBtn"
+                    aria-label="Previous track"
+                >⏮</button>
+
+                <button
+                    class="control-btn main"
+                    id="playBtn"
+                    aria-label="Play"
+                >▶</button>
+
+                <button
+                    class="control-btn"
+                    id="nextBtn"
+                    aria-label="Next track"
+                >⏭</button>
+
+            </div>
+
+            <div class="volume-row">
+
+                <span>VOL</span>
+
+                <input
+                    id="volume"
+                    class="progress"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="70"
+                    aria-label="Volume"
+                >
+
+            </div>
+
+            <div class="playlist" id="playlist"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section" id="about">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            OUR IDENTITY
+        </div>
+
+        <h2 class="section-title">
+            ABOUT NOVA
+        </h2>
+
+    </div>
+
+    <div class="about-box reveal">
+
+        <p class="about-text">
+            <strong>NOVA</strong> is a collective built around sound,
+            creativity and vision.
+            <br><br>
+            From production to performance, from beats to visuals,
+            we create music with our own identity.
+            <br><br>
+            Different people. Different sounds.
+            <strong>One NOVA.</strong>
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SOCIAL
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            CONNECT WITH US
+        </div>
+
+        <h2 class="section-title">
+            FOLLOW NOVA
+        </h2>
+
+    </div>
+
+    <div class="social-grid">
+
+        <a
+            id="socialTikTok"
+            class="social-card reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <div class="social-icon">TT</div>
+
+            <div>
+                <div class="social-name">TIKTOK</div>
+                <div class="social-handle">@NOVA</div>
+            </div>
+
+            <div class="social-arrow">↗</div>
+        </a>
+
+        <a
+            id="socialYouTube"
+            class="social-card reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <div class="social-icon">YT</div>
+
+            <div>
+                <div class="social-name">YOUTUBE</div>
+                <div class="social-handle">@NOVA</div>
+            </div>
+
+            <div class="social-arrow">↗</div>
+        </a>
+
+        <a
+            id="socialSoundCloud"
+            class="social-card reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <div class="social-icon">SC</div>
+
+            <div>
+                <div class="social-name">SOUNDCLOUD</div>
+                <div class="social-handle">NOVA</div>
+            </div>
+
+            <div class="social-arrow">↗</div>
+        </a>
+
+        <a
+            id="socialDiscord"
+            class="social-card reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <div class="social-icon">DC</div>
+
+            <div>
+                <div class="social-name">DISCORD</div>
+                <div class="social-handle">NOVA COMMUNITY</div>
+            </div>
+
+            <div class="social-arrow">↗</div>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        NOVA
+    </div>
+
+    <div class="footer-copy">
+        SOUND • VISION • ENERGY © <span id="year"></span>
+    </div>
+
+</footer>
+
+<!-- =========================================================
+     YOUTUBE IFRAME
+========================================================= -->
+
+<div class="youtube-frame">
+    <div id="youtubePlayer"></div>
+</div>
+
+<script>
+/* =========================================================
+   NOVA CONFIG
+   =========================================================
+   EDIT EVERYTHING HERE.
+========================================================= */
+
+const NOVA_CONFIG = {
+
+logo: "https://example.com/nova-logo.gif",
+
+socials: {
+
+    tiktok:
+        " https://www.tiktok.com/@thap.dai.gay.can?_r=1&_t=ZS-9AKUBSZvXaa",
+
+    youtube:
+        "https://youtube.com/@ngudaigaygo?si=izBnG5W0cBZ1NGBd",
+
+    soundcloud:
+        " https://m.soundcloud.com/ndgc-224413849",
+
+    discord:
+        "https://discord.gg/dz6Rw5cSb6"
+
+},
+
+tracks: [
+
+    {
+        title: "DIVOIEM",
+        artist: "Zura",
+        youtube:
+            "https://youtu.be/tLT7OnKJBEo?si=siLEOfE5Wel4D6Uo",
+        cover:
+            "https://cdn.discordapp.com/attachments/1345411055949709315/1554351502405926982/song2.jpg?ex=6abc9224&is=6abb40a4&hm=18330d6c8d31949121d2faa4737f339a4c21f56147f39ca835a19f416aa15c64&"
+    },
+
+    {
+        title: "210408",
+        artist: "Zura",
+        youtube:
+            "https://youtu.be/UO-5liXr34I?si=Su9OWNEZLvXfF4ZQ",
+        cover:
+            "https://cdn.discordapp.com/attachments/1345411055949709315/1554351492595712010/song3.jpg?ex=6abc9222&is=6abb40a2&hm=6d64ddcbb3f0c520e3dcff78974d02917fab8694691a18ff1611eedc9c2025ed&"
+    },
+
+    {
+        title: "Withered Flower",
+        artist: "Zura",
+        youtube:
+            "https://youtu.be/mOHQk4-8t2k?si=QbmHzytoKZ-3ddEb",
+        cover:
+            "https://cdn.discordapp.com/attachments/1345411055949709315/1554351513705521192/song1.jpg?ex=6abc9227&is=6abb40a7&hm=17ec35ec6be65669f7836fa5002fb44f950ac291e4c737a6a0c6f90357bc2379&"
+    }
+
+],
+
+members: [
+
+    {
+        name: "Lilziddy",
+        role: "ARTIST / Leader",
+        bio: "Leading the sound. Defining the vision.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1554351519946772480/lilziddy.jpg?ex=6ac86fa8&is=6ac71e28&hm=386226e20a830186d3a8930e2ff29c5a6d7c38501089823f9f4669c40cf24df8&",
+        tiktok: "https://www.tiktok.com/@laynyclamdongluc?",
+        youtube: "https://youtube.com/@zzqynz.o?si=ozvAc4kbOuv0xXpC",
+        soundcloud: "https://on.soundcloud.com/eLVqjuay6GewW4SQBT"
+    },
+
+    {
+        name: "Zura",
+        role: "Artist",
+        bio: "Expressing what words can't. Creating what feels real.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1554351548937670716/zura.jpg?ex=6ac86faf&is=6ac71e2f&hm=09cdfc70a040d4f566c32911292102bbad994edfaf7799c92a2220f49a65c91d&",
+        tiktok: "https://www.tiktok.com/@zura.dep.zai?",
+        youtube: "https://youtube.com/@youngzura?si=XnjnKwnQHFzjMhwu",
+        soundcloud: "https://soundcloud.com/quang-minh-146139464"
+    },
+
+    {
+        name: "Thokawi",
+        role: "Artist",
+        bio: "Finding my sound. Building my identity.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556891762247729262/Messenger_creation_0D0A67E0-D0EB-4145-96CD-5738D9D00F99.jpg?backend=b2&ex=6ac872f1&is=6ac72171&hm=d409ae4647f8f2c9149031f94a151b56fffcd4bad35f00a04ffdb1a65787f4f1&",
+        tiktok: "https://www.tiktok.com/@wakeupgvyx?",
+        youtube: "https://youtube.com/@wakeupkawi?si=AXM74swsFVqCnz-k",
+        soundcloud: "https://soundcloud.com/v-ch-n-465309864"
+    },
+
+    {
+        name: "Hexxo",
+        role: "MIX / MASTER / Artist",
+        bio: "Shaping frequencies. Perfecting the final sound.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556879073341612113/6e6e421df26fcdffa463d070df7baef6.jpg?backend=b2&ex=6ac86720&is=6ac715a0&hm=1c5b350a669fc48d9544f75ec8f9513b55f14d90370f45fb1ebfa5d5b3f21b0a&",
+        tiktok: "https://www.tiktok.com/@wakeuphexxo?",
+        youtube: "https://youtube.com/@hexxonewwave?si=prXgL6j_Xg-DctPm",
+        soundcloud: "https://on.soundcloud.com/NU3WHcCopnHX81jdNN"
+    },
+
+    {
+        name: "Ann",
+        role: "MIX / MASTER / Artist",
+        bio: "From the first idea to the final master.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556868615859339294/Messenger_creation_1001651052771548.jpg?backend=b2&ex=6ac85d63&is=6ac70be3&hm=f016f39436cbadc8635b82d50422a50a330acdf82fbca23678885b7c7361d3cb&",
+        tiktok: "https://www.tiktok.com/@miann_18312009",
+        youtube: "https://youtube.com/@anuwu-an?feature=shared",
+        soundcloud: "https://on.soundcloud.com/xfaCzJEwxdXXgjWPNv?utm_id=97757_v0_s00_e0_tv0"
+    },
+
+    {
+        name: "Keita",
+        role: "Artist",
+        bio: "Finding my sound. Building my identity.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1557610328454602833/Messenger_creation_1423132819976142.jpg?ex=6ac86d29&is=6ac71ba9&hm=afa25a6c8cc07250937f8c3c55c4555b462cc79d62950105027d9300755915a7&",
+        tiktok: "https://www.tiktok.com/@keiwizzz?_r=1&_t=ZS-9ANHNt8Rh1W",
+        youtube: "https://youtube.com/@keitakami66?si=KV4q_Yfc6me9AHvf",
+        soundcloud: "https://on.soundcloud.com/SWAcZpDWk5vOSyFuKO?utm_id=97757_v0_s00_e0_tv0"
+    },
+
+    {
+        name: "Wibi",
+        role: "Producer",
+        bio: "Building the sound from the very first beat.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556977426741993472/IMG_20251204_103947_119.jpg?backend=b2&ex=6ac819f9&is=6ac6c879&hm=b6d4bae2df6956182f410b0d1965fc080f4c5eb3d29cd71b1f9080da5b2b9c91&",
+        tiktok: "https://www.tiktok.com/@kphaiw1bi?_r=1&_t=ZS-9AJwd23ODOK",
+        youtube: "https://youtube.com/@kphaiw1bi?si=wlJZGMhp8CvR3_px",
+        soundcloud: "https://on.soundcloud.com/G1MP2RpfznTuNIGFzI"
+    },
+
+    {
+        name: "Qzad",
+        role: "VOICEMAIL / EDITOR",
+        bio: "A voice that leaves an atmosphere behind.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556977367967072256/585f1ab3d6f844b299a216e79721f89b.webp?backend=b2&ex=6ac819eb&is=6ac6c86b&hm=58a666406356baa4aaaddb049e8fc479aa47a2dea994246d3feb9ad7a525db8b&",
+        tiktok: "https://www.tiktok.com/@ducanh_2970?",
+        youtube: "https://youtube.com/@ducanh-yw3?si=l5-1ubbvp9RluxQx",
+        soundcloud: "https://on.soundcloud.com/7Sgxuhg4FZbxYP9Vn7"
+    },
+
+    {
+        name: "Chocomint",
+        role: "SOCIAL / VISUAL",
+        bio: "Connecting people. Bringing NOVA to life.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1556893534320201831/218337690b97437aa4614431cfa5103b.webp?backend=b2&ex=6ac87498&is=6ac72318&hm=07861e6e22cda19b0fb665c4b7538c74387f34a9ff71a91fd39cf6cd063d80a6&",
+        tiktok: "https://www.tiktok.com/@mattachanh?",
+        youtube: "https://youtube.com/@emnhoanh-u3p?si=dhGC7MNHPbzWw8mQ",
+        soundcloud: "https://on.soundcloud.com/Pvrj6zXVkckNTbhAE5"
+    },
+
+    {
+        name: "Noxious",
+        role: "Dev / Editor / Visual / Artist",
+        bio: "Turning ideas into sound and vision.",
+        avatar: "https://cdn.discordapp.com/attachments/1345411055949709315/1557624239102758973/IMG_20261008_110435.jpg?ex=6ac87a1d&is=6ac7289d&hm=b362228802c3cbb35121d19f3e0f4af9143df31a634dc32a6021f7803bff87d2&",
+        tiktok: "https://www.tiktok.com/@wakeupgiavyx?",
+        youtube: "https://www.youtube.com/@username2",
+        soundcloud: "https://soundcloud.com/username2"
+    }
+
+]
+
+};
+
+/* =========================================================
+BASIC REFERENCES
+========================================================= */
+
+const $ = selector => document.querySelector(selector);
+
+const heroLogo = $("#heroLogo");
+const logoFallback = $("#logoFallback");
+const teamGrid = $("#teamGrid");
+
+const player = $("#player");
+const playerCover = $("#playerCover");
+const trackTitle = $("#trackTitle");
+const trackArtist = $("#trackArtist");
+const playlist = $("#playlist");
+
+const playBtn = $("#playBtn");
+const prevBtn = $("#prevBtn");
+const nextBtn = $("#nextBtn");
+
+const progress = $("#progress");
+const volume = $("#volume");
+
+const currentTimeEl = $("#currentTime");
+const durationEl = $("#duration");
+
+const youtubeStatus = $("#youtubeStatus");
+
+
+/* =========================================================
+   DEVICE PERFORMANCE DETECTION
+========================================================= */
+
+(function optimizeForDevice() {
+
+    const lowMemory =
+        navigator.deviceMemory &&
+        navigator.deviceMemory <= 4;
+
+    const lowCPU =
+        navigator.hardwareConcurrency &&
+        navigator.hardwareConcurrency <= 4;
+
+    const reduced =
+        window.matchMedia &&
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+    if (lowMemory || lowCPU || reduced) {
+        document.body.classList.add("low-end");
+    }
+
+})();
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+heroLogo.src = NOVA_CONFIG.logo;
+
+heroLogo.addEventListener("load", () => {
+    logoFallback.style.display = "none";
+});
+
+heroLogo.addEventListener("error", () => {
+    heroLogo.style.display = "none";
+    logoFallback.style.display = "block";
+});
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+$("#socialTikTok").href =
+    NOVA_CONFIG.socials.tiktok;
+
+$("#socialYouTube").href =
+    NOVA_CONFIG.socials.youtube;
+
+$("#socialSoundCloud").href =
+    NOVA_CONFIG.socials.soundcloud;
+
+$("#socialDiscord").href =
+    NOVA_CONFIG.socials.discord;
+
+
+/* =========================================================
+   TEAM RENDER
+========================================================= */
+
+function renderTeam() {
+
+    teamGrid.innerHTML = "";
+
+    NOVA_CONFIG.members.forEach((member, index) => {
+
+        const card = document.createElement("article");
+
+        card.className =
+            "member-card reveal";
+
+        card.innerHTML = `
+
+            <div class="member-image">
+
+                <img
+                    src="${member.avatar}"
+                    alt="${escapeHTML(member.name)}"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+            <div class="member-number">
+                MEMBER ${String(index + 1).padStart(2, "0")}
+            </div>
+
+            <div class="member-name">
+                ${escapeHTML(member.name)}
+            </div>
+
+            <div class="member-role">
+                ${escapeHTML(member.role)}
+            </div>
+
+            <div class="member-bio">
+                ${escapeHTML(member.bio)}
+            </div>
+
+            <div class="socials">
+
+                <a
+                    href="${member.tiktok}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                >TT</a>
+
+                <a
+                    href="${member.youtube}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                >YT</a>
+
+                <a
+                    href="${member.soundcloud}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="SoundCloud"
+                >SC</a>
+
+            </div>
+        `;
+
+        teamGrid.appendChild(card);
+
+        const image =
+            card.querySelector("img");
+
+        image.addEventListener("error", () => {
+            image.style.display = "none";
+        });
+
+    });
+
+}
+
+renderTeam();
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+/* =========================================================
+   3D CARD TILT
+   Desktop only.
+========================================================= */
+
+function enableCardTilt() {
+
+    if (
+        window.matchMedia &&
+        window.matchMedia("(pointer: fine)").matches &&
+        !document.body.classList.contains("low-end")
+    ) {
+
+        document
+            .querySelectorAll(".member-card")
+            .forEach(card => {
+
+                card.addEventListener(
+                    "pointermove",
+                    event => {
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+                        const x =
+                            event.clientX - rect.left;
+
+                        const y =
+                            event.clientY - rect.top;
+
+                        const px =
+                            x / rect.width;
+
+                        const py =
+                            y / rect.height;
+
+                        const rotateY =
+                            (px - .5) * 7;
+
+                        const rotateX =
+                            (.5 - py) * 7;
+
+                        card.style.setProperty(
+                            "--mx",
+                            `${px * 100}%`
+                        );
+
+                        card.style.setProperty(
+                            "--my",
+                            `${py * 100}%`
+                        );
+
+                        card.style.transform =
+                            `perspective(800px)
+                             rotateX(${rotateX}deg)
+                             rotateY(${rotateY}deg)
+                             translateZ(0)`;
+
+                    },
+                    { passive: true }
+                );
+
+                card.addEventListener(
+                    "pointerleave",
+                    () => {
+
+                        card.style.transform =
+                            "perspective(800px) rotateX(0deg) rotateY(0deg)";
+
+                    },
+                    { passive: true }
+                );
+
+            });
+
+    }
+
+}
+
+enableCardTilt();
+
+
+/* =========================================================
+   MOBILE TOUCH FEEDBACK
+========================================================= */
+
+if (
+    window.matchMedia &&
+    window.matchMedia("(pointer: coarse)").matches
+) {
+
+    document.addEventListener(
+        "pointerdown",
+        event => {
+
+            const button =
+                event.target.closest(
+                    ".btn, .control-btn, .social-card, .playlist-item"
+                );
+
+            if (!button) return;
+
+            button.style.transform =
+                "scale(.97)";
+
+        },
+        { passive: true }
+    );
+
+    document.addEventListener(
+        "pointerup",
+        event => {
+
+            const button =
+                event.target.closest(
+                    ".btn, .control-btn, .social-card, .playlist-item"
+                );
+
+            if (!button) return;
+
+            setTimeout(() => {
+                button.style.transform = "";
+            }, 100);
+
+        },
+        { passive: true }
+    );
+
+}
+
+
+/* =========================================================
+   NAV MOBILE
+========================================================= */
+
+const menuBtn = $("#menuBtn");
+const navLinks = $("#navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+});
+
+navLinks.addEventListener("click", event => {
+
+    if (event.target.tagName === "A") {
+        navLinks.classList.remove("open");
+    }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .08,
+            rootMargin: "0px 0px -30px 0px"
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+/* =========================================================
+   YOUTUBE PLAYER
+========================================================= */
+
+let ytPlayer = null;
+let ytReady = false;
+let ytLoading = false;
+
+let currentTrack = 0;
+let isPlaying = false;
+
+let progressRAF = null;
+let lastProgressUpdate = 0;
+
+
+/* =========================================================
+   EXTRACT YOUTUBE VIDEO ID
+========================================================= */
+
+function getYouTubeId(url) {
+
+    if (!url) return null;
+
+    try {
+
+        const parsed =
+            new URL(url);
+
+        if (
+            parsed.hostname.includes("youtu.be")
+        ) {
+
+            return parsed.pathname
+                .replace("/", "")
+                .split("?")[0];
+
+        }
+
+        if (
+            parsed.hostname.includes("youtube.com")
+        ) {
+
+            const id =
+                parsed.searchParams.get("v");
+
+            if (id) return id;
+
+            const parts =
+                parsed.pathname.split("/");
+
+            const index =
+                parts.indexOf("embed");
+
+            if (
+                index !== -1 &&
+                parts[index + 1]
+            ) {
+
+                return parts[index + 1];
+
+            }
+
+        }
+
+    } catch (error) {
+
+        return null;
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   FORMAT TIME
+========================================================= */
+
+function formatTime(seconds) {
+
+    if (
+        !Number.isFinite(seconds) ||
+        seconds < 0
+    ) {
+        return "0:00";
+    }
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const secs =
+        Math.floor(seconds % 60)
+            .toString()
+            .padStart(2, "0");
+
+    return `${minutes}:${secs}`;
+
+}
+
+
+/* =========================================================
+   PLAYER UI
+========================================================= */
+
+function updatePlayerUI() {
+
+    const track =
+        NOVA_CONFIG.tracks[currentTrack];
+
+    if (!track) return;
+
+    trackTitle.textContent =
+        track.title;
+
+    trackArtist.textContent =
+        track.artist;
+
+    playerCover.src =
+        track.cover;
+
+    renderPlaylist();
+
+}
+
+
+/* =========================================================
+   COVER FALLBACK
+========================================================= */
+
+playerCover.addEventListener(
+    "error",
+    () => {
+
+        playerCover.removeAttribute("src");
+
+    }
+);
+
+
+/* =========================================================
+   PLAYLIST
+========================================================= */
+
+function renderPlaylist() {
+
+    playlist.innerHTML = "";
+
+    NOVA_CONFIG.tracks.forEach(
+        (track, index) => {
+
+            const item =
+                document.createElement("button");
+
+            item.className =
+                "playlist-item" +
+                (index === currentTrack
+                    ? " active"
+                    : "");
+
+            item.type = "button";
+
+            item.innerHTML = `
+
+                <img
+                    class="playlist-cover"
+                    src="${track.cover}"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="playlist-text">
+
+                    <div class="playlist-title">
+                        ${escapeHTML(track.title)}
+                    </div>
+
+                    <div class="playlist-artist">
+                        ${escapeHTML(track.artist)}
+                    </div>
+
+                </div>
+            `;
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    loadTrack(index, true);
+
+                }
+            );
+
+            playlist.appendChild(item);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOAD YOUTUBE API ONLY WHEN NEEDED
+========================================================= */
+
+function loadYouTubeAPI() {
+
+    if (window.YT && window.YT.Player) {
+
+        createYouTubePlayer();
+
+        return;
+
+    }
+
+    if (ytLoading) return;
+
+    ytLoading = true;
+
+    youtubeStatus.textContent =
+        "LOADING YOUTUBE...";
+
+    const script =
+        document.createElement("script");
+
+    script.src =
+        "https://www.youtube.com/iframe_api";
+
+    script.async = true;
+
+    script.onload = () => {
+
+        ytLoading = false;
+
+    };
+
+    script.onerror = () => {
+
+        ytLoading = false;
+
+        player.classList.add("error");
+
+        youtubeStatus.textContent =
+            "MUSIC PLAYER UNAVAILABLE";
+
+    };
+
+    document.head.appendChild(script);
+
+}
+
+
+/* =========================================================
+   YOUTUBE GLOBAL CALLBACK
+========================================================= */
+
+window.onYouTubeIframeAPIReady =
+    function () {
+
+        createYouTubePlayer();
+
+    };
+
+
+/* =========================================================
+   CREATE PLAYER
+========================================================= */
+
+function createYouTubePlayer() {
+
+    if (ytPlayer || !window.YT) return;
+
+    const track =
+        NOVA_CONFIG.tracks[currentTrack];
+
+    const videoId =
+        getYouTubeId(track.youtube);
+
+    if (!videoId) {
+
+        player.classList.add("error");
+
+        youtubeStatus.textContent =
+            "INVALID YOUTUBE URL";
+
+        return;
+
+    }
+
+    ytPlayer =
+        new YT.Player(
+            "youtubePlayer",
+            {
+
+                width: "2",
+                height: "2",
+
+                videoId: videoId,
+
+                playerVars: {
+
+                    autoplay: 0,
+                    controls: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    rel: 0,
+                    playsinline: 1,
+                    modestbranding: 1
+
+                },
+
+                events: {
+
+                    onReady:
+                        onYouTubeReady,
+
+                    onStateChange:
+                        onYouTubeStateChange,
+
+                    onError:
+                        onYouTubeError
+
+                }
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   YOUTUBE READY
+========================================================= */
+
+function onYouTubeReady(event) {
+
+    ytReady = true;
+
+    player.classList.remove("error");
+    player.classList.add("ready");
+
+    youtubeStatus.textContent =
+        "YOUTUBE PLAYER READY";
+
+    event.target.setVolume(
+        Number(volume.value)
+    );
+
+}
+
+
+/* =========================================================
+   YOUTUBE STATE
+========================================================= */
+
+function onYouTubeStateChange(event) {
+
+    if (!window.YT) return;
+
+    if (
+        event.data ===
+        YT.PlayerState.PLAYING
+    ) {
+
+        isPlaying = true;
+
+        player.classList.add("playing");
+
+        playBtn.textContent = "⏸";
+
+        startProgressLoop();
+
+    }
+
+    else if (
+        event.data ===
+        YT.PlayerState.PAUSED
+    ) {
+
+        isPlaying = false;
+
+        player.classList.remove("playing");
+
+        playBtn.textContent = "▶";
+
+        stopProgressLoop();
+
+    }
+
+    else if (
+        event.data ===
+        YT.PlayerState.ENDED
+    ) {
+
+        isPlaying = false;
+
+        player.classList.remove("playing");
+
+        playBtn.textContent = "▶";
+
+        stopProgressLoop();
+
+        nextTrack(true);
+
+    }
+
+}
+
+
+/* =========================================================
+   YOUTUBE ERROR
+========================================================= */
+
+function onYouTubeError() {
+
+    player.classList.remove("ready");
+    player.classList.add("error");
+
+    youtubeStatus.textContent =
+        "MUSIC PLAYER UNAVAILABLE";
+
+}
+
+
+/* =========================================================
+   LOAD TRACK
+========================================================= */
+
+function loadTrack(index, autoPlay = false) {
+
+    if (!NOVA_CONFIG.tracks.length) return;
+
+    currentTrack =
+        (index + NOVA_CONFIG.tracks.length) %
+        NOVA_CONFIG.tracks.length;
+
+    updatePlayerUI();
+
+    const track =
+        NOVA_CONFIG.tracks[currentTrack];
+
+    const videoId =
+        getYouTubeId(track.youtube);
+
+    if (!videoId) {
+
+        player.classList.add("error");
+
+        youtubeStatus.textContent =
+            "INVALID YOUTUBE URL";
+
+        return;
+
+    }
+
+    if (!ytPlayer) {
+
+        if (autoPlay) {
+
+            loadYouTubeAPI();
+
+        }
+
+        return;
+
+    }
+
+    try {
+
+        if (autoPlay) {
+
+            ytPlayer.loadVideoById(
+                videoId
+            );
+
+        } else {
+
+            ytPlayer.cueVideoById(
+                videoId
+            );
+
+        }
+
+    } catch (error) {
+
+        player.classList.add("error");
+
+        youtubeStatus.textContent =
+            "MUSIC PLAYER UNAVAILABLE";
+
+    }
+
+}
+
+
+/* =========================================================
+   PLAY / PAUSE
+========================================================= */
+
+function togglePlay() {
+
+    if (!ytPlayer || !ytReady) {
+
+        loadYouTubeAPI();
+
+        setTimeout(() => {
+
+            if (ytPlayer && ytReady) {
+
+                ytPlayer.playVideo();
+
+            }
+
+        }, 500);
+
+        return;
+
+    }
+
+    if (isPlaying) {
+
+        ytPlayer.pauseVideo();
+
+    } else {
+
+        const track =
+            NOVA_CONFIG.tracks[currentTrack];
+
+        const videoId =
+            getYouTubeId(track.youtube);
+
+        if (videoId) {
+
+            ytPlayer.loadVideoById(
+                videoId
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
+
+function nextTrack(auto = false) {
+
+    const next =
+        (currentTrack + 1) %
+        NOVA_CONFIG.tracks.length;
+
+    loadTrack(next, true);
+
+}
+
+
+function previousTrack() {
+
+    if (
+        ytPlayer &&
+        ytReady &&
+        ytPlayer.getCurrentTime() > 3
+    ) {
+
+        ytPlayer.seekTo(0, true);
+
+        return;
+
+    }
+
+    const previous =
+        (currentTrack - 1 +
+            NOVA_CONFIG.tracks.length) %
+        NOVA_CONFIG.tracks.length;
+
+    loadTrack(previous, true);
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+playBtn.addEventListener(
+    "click",
+    togglePlay
+);
+
+nextBtn.addEventListener(
+    "click",
+    nextTrack
+);
+
+prevBtn.addEventListener(
+    "click",
+    previousTrack
+);
+
+
+/* =========================================================
+   VOLUME
+========================================================= */
+
+volume.addEventListener(
+    "input",
+    () => {
+
+        if (
+            ytPlayer &&
+            ytReady &&
+            typeof ytPlayer.setVolume ===
+            "function"
+        ) {
+
+            ytPlayer.setVolume(
+                Number(volume.value)
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+progress.addEventListener(
+    "input",
+    () => {
+
+        if (
+            !ytPlayer ||
+            !ytReady
+        ) return;
+
+        const duration =
+            ytPlayer.getDuration();
+
+        if (!duration) return;
+
+        const time =
+            duration *
+            (Number(progress.value) / 100);
+
+        ytPlayer.seekTo(
+            time,
+            true
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PROGRESS LOOP
+========================================================= */
+
+function startProgressLoop() {
+
+    if (progressRAF) return;
+
+    const update =
+        timestamp => {
+
+            progressRAF =
+                requestAnimationFrame(update);
+
+            if (
+                document.hidden ||
+                !ytPlayer ||
+                !isPlaying
+            ) {
+                return;
+            }
+
+            /*
+             * Limit UI updates to roughly
+             * 15–20 times per second.
+             * The audio/video itself is handled
+             * by YouTube.
+             */
+
+            if (
+                timestamp - lastProgressUpdate <
+                55
+            ) {
+                return;
+            }
+
+            lastProgressUpdate =
+                timestamp;
+
+            try {
+
+                const current =
+                    ytPlayer.getCurrentTime();
+
+                const duration =
+                    ytPlayer.getDuration();
+
+                if (
+                    Number.isFinite(duration) &&
+                    duration > 0
+                ) {
+
+                    progress.value =
+                        (current / duration) * 100;
+
+                    currentTimeEl.textContent =
+                        formatTime(current);
+
+                    durationEl.textContent =
+                        formatTime(duration);
+
+                }
+
+            } catch (error) {}
+
+        };
+
+    progressRAF =
+        requestAnimationFrame(update);
+
+}
+
+
+function stopProgressLoop() {
+
+    if (progressRAF) {
+
+        cancelAnimationFrame(
+            progressRAF
+        );
+
+        progressRAF = null;
+
+    }
+
+}
+
+
+/* =========================================================
+   TAB VISIBILITY
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (document.hidden) {
+
+            stopProgressLoop();
+
+        } else if (isPlaying) {
+
+            startProgressLoop();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL PLAYER UI
+========================================================= */
+
+updatePlayerUI();
+
+
+/* =========================================================
+   DON'T LOAD YOUTUBE UNTIL USER INTERACTS
+========================================================= */
+
+[
+    playBtn,
+    nextBtn,
+    prevBtn
+].forEach(button => {
+
+    button.addEventListener(
+        "pointerdown",
+        () => {
+
+            if (!ytPlayer) {
+
+                loadYouTubeAPI();
+
+            }
+
+        },
+        {
+            once: true,
+            passive: true
+        }
+    );
+
+});
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+$("#year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   SAFETY: PREVENT BROKEN IMAGE LAYOUT
+========================================================= */
+
+document.addEventListener(
+    "error",
+    event => {
+
+        if (
+            event.target &&
+            event.target.tagName === "IMG"
+        ) {
+
+            event.target.style.background =
+                "radial-gradient(circle,#241743,#08080d 70%)";
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   END
+========================================================= */
+</script>
+
+</body>
+</html>
